@@ -1,0 +1,22 @@
+
+t
+java:S1192"RDefine a constant instead of duplicating this literal "WEB-INF/essai.jsp" 3 times.(ş–Ÿ¢ıÿÿÿÿ8Ñ·Á¦§1
+}
+java:S1989"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(ù‰28Û·Á¦§1
+ƒ
+java:S1989"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(ş–Ÿ¢ıÿÿÿÿ8Ü·Á¦§1
+p
+java:S1989 "SHandle the following exception that could be thrown by "sendRedirect": IOException.(ëéë8İ·Á¦§1
+}
+java:S1989#"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(ù‰28İ·Á¦§1
+ƒ
+java:S1989,"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(ş–Ÿ¢ıÿÿÿÿ8Ş·Á¦§1
+ƒ
+java:S1989/"aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(ş–Ÿ¢ıÿÿÿÿ8Ş·Á¦§1
+z
+java:S2226
+"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(ÖıÆøÿÿÿÿ8©Á±¦§1
+z
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(íä­úÿÿÿÿ8©Á±¦§1
+u
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(ë¡ù„8ß·Á¦§1

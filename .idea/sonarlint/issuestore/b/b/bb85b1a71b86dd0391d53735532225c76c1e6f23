@@ -1,0 +1,24 @@
+
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â½Ú…ÿÿÿÿÿ
+
+java:S4165"fRemove this useless assignment; "aDeviner" already holds the assigned value along all execution paths.(°Ìâ•üÿÿÿÿ
+M
+java:S1135"2Complete the task associated to this TODO comment.(ÕÆÔÿÿÿÿÿ
+M
+java:S1135"2Complete the task associated to this TODO comment.(Éİ·Ùûÿÿÿÿ
+I
+java:S1172".Remove this unused method parameter "Deviner".(â½Ú…ÿÿÿÿÿ
+B
+java:S1125&"'Remove the unnecessary boolean literal.(Œ¢èïúÿÿÿÿ
+J
+java:S1656"/Remove or correct this useless self-assignment.(°Ìâ•üÿÿÿÿ
+s
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(ÖıÆøÿÿÿÿ
+s
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(íä­úÿÿÿÿ
+n
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(ë¡ù„
+K
+java:S1144"0Remove this unused private "setaDeviner" method.(â½Ú…ÿÿÿÿÿ
+?
+java:S1144 ")Remove this unused private "test" method.(¢Œœç

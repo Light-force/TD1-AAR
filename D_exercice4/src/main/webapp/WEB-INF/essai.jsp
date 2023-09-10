@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -9,12 +8,13 @@
 <body>
 <p>Il est temps de deviner...</p>
 Quel caractère proposez-vous ?
-<form method="post">
-    <input type="text" name="lecaractere">
-    <button type="submit">Envoyer</button> <!-- TODO compléter le bouton -->
+<form method="post" action="play">
+    <input type="text" name="lecaractere" maxlength="1">
+    <button type="submit">Envoyer</button>
 </form>
 
-Pour l'instant vous avez trouvé : <!-- TODO le mot en partie découvert (ou pas)-->
+<p>Nombre d'essais restants : <c:out value="${nbEssaisRestants}" /></p>
+Pour l'instant vous avez trouvé : <c:out value="${devine}" />
 
 </body>
 </html>

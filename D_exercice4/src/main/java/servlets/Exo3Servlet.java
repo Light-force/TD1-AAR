@@ -1,43 +1,52 @@
 package servlets;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/"})
+@WebServlet(urlPatterns = {"/init", "/play", "/"})
 public class Exo3Servlet extends HttpServlet {
-    private String aDeviner=null;
-    private StringBuilder devine=null;
-    private int nbEssaisRestants;
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO ce qui est fait au premier appel
-    }
+    private GestionPendu jeuPendu = new GestionPendu();
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO ce qui est fait pour les appels suivants...
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        if (jeuPendu.getDevine() == null || "/".equals(request.getServletPath())) {
+            request.getRequestDispatcher("WEB-INF/pendu.jsp").forward(request, response);
+        } else {
+            request.setAttribute("devine", jeuPendu.getDevine());
+            request.setAttribute("nbEssaisRestants", jeuPendu.getNbEssaisRestants());
+            request.getRequestDispatcher("WEB-INF/essai.jsp").forward(request, response);
+        }
     }
 
-
-    private void setaDeviner(String Deviner) {
-        this.aDeviner=aDeviner;
-        this.devine=new StringBuilder("_".repeat(aDeviner.length()));
-        this.nbEssaisRestants=10;
-    }
-
-    private boolean test(char carac){
-        boolean res=false;
-        for (int last=0;last!=-1;last=aDeviner.indexOf(carac,last)) {
-            res = true;
-            devine.setCharAt(last, carac);
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        if ("/init".equals(request.getServletPath())) {
+            String mot = request.getParameter("lemot");
+            if (mot != null && !mot.isEmpty()) {
+                jeuPendu.setaDeviner(mot);
+                response.sendRedirect(request.getContextPath() + "/play");
+            } else {
+                request.setAttribute("error", "Veuillez entrer un mot valide.");
+                request.getRequestDispatcher("WEB-INF/pendu.jsp").forward(request, response);
+            }
+        } else if ("/play".equals(request.getServletPath())) {
+            String letterInput = request.getParameter("lecaractere");
+            if (letterInput != null && letterInput.length() == 1) {
+                char letter = letterInput.charAt(0);
+                boolean letterExists = jeuPendu.test(letter);
+                request.setAttribute("letterExists", letterExists);
+                request.setAttribute("devine", jeuPendu.getDevine());
+                request.setAttribute("nbEssaisRestants", jeuPendu.getNbEssaisRestants());
+                request.getRequestDispatcher("WEB-INF/essai.jsp").forward(request, response);
+            } else {
+                request.setAttribute("nbEssaisRestants", jeuPendu.getNbEssaisRestants());
+                request.setAttribute("error", "Veuillez entrer un caractère valide.");
+                request.getRequestDispatcher("WEB-INF/essai.jsp").forward(request, response);
+            }
         }
-        if (res==false) {
-            nbEssaisRestants--;
-        }
-        return res;
     }
 }

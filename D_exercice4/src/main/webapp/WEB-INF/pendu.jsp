@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -9,9 +8,9 @@
 <body>
 <p>bienvenu dans le jeu de pendu...</p>
 Quel mot proposez-vous ?
-<form method="post">
+<form method="post" action="init">
     <input type="text" name="lemot">
-    <button type="submit">Envoyer</button> <!-- TODO compléter le bouton -->
+    <button type="submit">Envoyer</button>
 </form>
 </body>
 </html>
